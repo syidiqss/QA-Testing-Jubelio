@@ -1,0 +1,136 @@
+{
+	"info": {
+		"_postman_id": "60e5e90d-185a-42e8-ae85-988b72ed8fbf",
+		"name": "API Testing Jubelio",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27556981",
+		"_collection_link": "https://www.postman.com/aviation-administrator-16794160/workspace/jubelio-testing/collection/27556981-60e5e90d-185a-42e8-ae85-988b72ed8fbf?action=share&source=collection_link&creator=27556981"
+	},
+	"item": [
+		{
+			"name": "+ Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "qa.rakamin.jubelio@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "Jubelio123!\n",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "+ Login",
+					"host": [
+						"+ Login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "All product price",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlVTRVI6cWEucmFrYW1pbi5qdWJlbGlvQGdtYWlsLmNvbToxMDMuMTU4LjI1Mi4zOCIsImV4cCI6MTY5NjAwMjU3Mjc1MCwiaWF0IjoxNjk1OTU5MzcyfQ.VluhQpWRb5Vz3q9e7NIntiDns_krTs84DjkoHxzcx6Q",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"channels\": [\r\n    {\r\n      \"store_id\": 359,\r\n      \"channel_name\": \"Elevenia\",\r\n      \"store_name\": \"truzteeshop\"\r\n    }\r\n  ],\r\n  \"data\": [\r\n    {\r\n      \"item_group_id\": 1,\r\n      \"item_id\": 2273,\r\n      \"item_name\": \"Baju Corak Carik Warna Warni\",\r\n      \"item_code\": \"BLACK\",\r\n      \"brand_name\": null,\r\n      \"prices\": [\r\n        {\r\n          \"store_id\": 359,\r\n          \"price\": 100000\r\n        }\r\n      ],\r\n      \"last_modified\": null\r\n    }\r\n  ],\r\n  \"totalCount\": 1,\r\n  \"modified_by\": [\r\n    \"string\"\r\n  ],\r\n  \"channel_status\": [\r\n    \"string\"\r\n  ]\r\n}"
+				},
+				"url": {
+					"raw": "https://api.jubelio.com/inventory/internal-price-list/",
+					"protocol": "https",
+					"host": [
+						"api",
+						"jubelio",
+						"com"
+					],
+					"path": [
+						"inventory",
+						"internal-price-list",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Upload product image",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{\n  \"success\": true,\n  \"name\": \"Termurah__Rice_Cooker_Miyako_Mcm_606_A___Magic_Com_06l___Pen.jpg\",\n  \"key\": \"https://jubelio.blob.core.windows.net/images/bngb2liirsoobzqmj73egg/636d4589-f8b3-4271-aa96-403d11ce3a6f.jpeg\",\n  \"thumbnail\": \"https://jubelio.blob.core.windows.net/images/bngb2liirsoobzqmj73egg/636d4589-f8b3-4271-aa96-403d11ce3a6f_thumb.jpeg\"\n}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"success\": true,\r\n  \"name\": \"Termurah__Rice_Cooker_Miyako_Mcm_606_A___Magic_Com_06l___Pen.jpg\",\r\n  \"key\": \"https://jubelio.blob.core.windows.net/images/bngb2liirsoobzqmj73egg/636d4589-f8b3-4271-aa96-403d11ce3a6f.jpeg\",\r\n  \"thumbnail\": \"https://jubelio.blob.core.windows.net/images/bngb2liirsoobzqmj73egg/636d4589-f8b3-4271-aa96-403d11ce3a6f_thumb.jpeg\"\r\n}"
+				},
+				"url": {
+					"raw": "https://api.jubelio.com/inventory/upload-image",
+					"protocol": "https",
+					"host": [
+						"api",
+						"jubelio",
+						"com"
+					],
+					"path": [
+						"inventory",
+						"upload-image"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Product",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://api.jubelio.com/inventory/items/",
+					"protocol": "https",
+					"host": [
+						"api",
+						"jubelio",
+						"com"
+					],
+					"path": [
+						"inventory",
+						"items",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
